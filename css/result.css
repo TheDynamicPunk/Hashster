@@ -1,0 +1,17 @@
+/*  IDK why I created it... maybe just to get rid of some headache. */
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.result {
+    margin: auto;
+    padding-top: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+button {
+    margin-bottom: 50px;
+}

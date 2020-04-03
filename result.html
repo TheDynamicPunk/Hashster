@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/604ade5d09.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/result.css">
+    <title>Result | Hashster</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="assets/logo.png" alt="logo" height="50px"></a>
+        <ul class="nav_links">
+            <li><a href="getHash.html">Calculate Hash</a></li>
+            <li><a href="index.html">Check Authenticity</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </header>
+    <div>
+        <div class="result verified" style="display: none;">
+            <br>
+            <img src="assets\tick.png" alt="Verified!">
+            <h1>File checksum verified!</h1>
+            <button onclick="returnHome()">Check Again!</button>
+        </div>
+        <div class="result unverified" style="display: none;">
+            <br>
+            <img src="assets\error.png" alt="Unverified!">
+            <h1>File checksum not verified!</h1>
+            <button onclick="returnHome()">Check Again!</button>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <div class="social-logos">
+                <div class="first col">
+                    <img src="assets/logo-white.png" alt="logo" height="80px">
+                </div>
+                <div class="second col">
+                    <p style="font-size: 16px;">A safe and secure way to calculate your file hash right here in the browser without uploading your files to a server.</p>
+                </div>
+                <div class="third col">
+                    <p>Find me on</p>
+                    <p><a href="https://www.linkedin.com/in/gupta-ashu/" target="blank"><i class="fab fa-linkedin"></i>&nbsp;&nbsp;Follow Me</a></p>
+                    <p><a href="https://github.com/TheDynamicPunk" target="blank"><i class="fab fa-github"></i>&nbsp;&nbsp;See Profile</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script src="js/testScript.js"></script> -->
+    <script src="js/result.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+/* old main stylesheet with float properties for cards */
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-weight: 200;
+    color: #292929;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+li, a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+header {
+    background-color: #ff000081;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    margin-bottom: 30px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links, li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links,li,a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links, li, a:hover {
+    color: white;
+}
+
+.mid-section {
+    text-align: center;
+    padding-top: 2em;
+}
+
+.column {
+    float: left;
+    margin: 1%;
+    width: 28.5%;
+    padding: 1%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.box {
+    border: dashed #ff000081;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ff00003f;
+    height: 310px;
+    align-items: center;
+}
+
+#hash-field {
+    width: 65%;
+    padding: 0.5em;
+    transition: 0.3s;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e72929;
+    background-color: transparent;
+}
+
+#hash-field:focus {
+    transform: scaleX(1.2);
+    transition: 0.3s;
+}
+
+/* for styling the input file button */
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+[type=file] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    position: relative;
+    margin-top: 10%;
+    margin-left: 20%;    
+    max-width: 50%;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    padding: 10px 15px;
+    background-color: #f73131;
+    border-radius: 10px;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputfile-3 + label {
+    color: #ffffffd3;
+}
+
+.inputfile-3:focus + label,
+.inputfile-3.has-focus + label,
+.inputfile-3 + label:hover {
+    color: #ffffff;
+    background-color: #b92020;
+}
+
+button {
+    outline: none;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: none;
+    background-color: #f73131;
+    color: white;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color:#000000;
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#submit-btn {
+    margin-bottom: 50px;
+}
+
+.fa-cloud {
+    color: #ff000086;
+    transition: 0.4s;
+}
+
+.fa-arrow-up {
+    color: #ffffffce;
+    transition: 0.4s;
+}
+
+.fa-arrow-up:hover {
+    transform: rotate(180deg);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+#error {
+    border-radius: 5px;
+    border: dashed;
+    border-color: red;
+    margin: auto;
+    padding: 10px;
+    color: #202020;
+    background-color: #ee7373;
+    width: 90%;
+}
+
+footer {
+    text-align: center;
+    font-size: 20px;
+    background-color: #202020;
+    color: white;
+    padding: 30px;
+    margin-top: auto;
+}
+
+.social-logos{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-logos a{
+    color: white;
+}
+
+.social-logos a:hover{
+    color: #cc5151;
+}
+
+.col {
+    max-width: 38%;
+}
+
+.row h2 {
+    width: 30%;
+    margin: 10px auto;
+}
+
+.step {
+    text-align: center;
+}
+
+#copy {
+    padding: 10px;
+    margin: 15px auto 40px;
+    font-size: medium;
+    max-width: 120px;
+}
+
+#copy-img {
+    height: 18px;
+    vertical-align: middle;
+}
+
+.about-this {
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 50px;
+    background-color: #ff000081;
+    color: black;
+}
+
+@media screen and (max-width: 720px) {
+    .column {
+      width: 96%;
+    }
+
+    .inputfile + label {
+        margin-top: 9%;
+        margin-left: 32%;
+        max-width: 30%;
+    }
+  }
