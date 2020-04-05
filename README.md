@@ -12,4 +12,4 @@ Web-based client side file integrity verifier implementing various hashing algor
 1. Increasing the current file size limit.
 2. Implementing the buggy drag and drop handling.
 
-###### Any help is greatly appreciated!
+#### Any help is greatly appreciated!
