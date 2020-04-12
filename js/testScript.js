@@ -1,4 +1,4 @@
-// Main scripts for the working of pages
+// Main scripts for calculating and comaprison of file hashes
 
 var fileRef = document.querySelector("#file3");
 var hashMethod = document.querySelector("#hashMethods");
@@ -21,7 +21,7 @@ if(hashChecksum != null)
 {
     hashChecksum.addEventListener('change', event => {
         console.log(event.target.value);
-    })
+    });
 }
 
 var reader = new FileReader();
@@ -34,18 +34,12 @@ function validateInput()
 {
     var valid = false;
 
-    console.log(inputFile);
-    console.log(hashMethod.value);
-    console.log(hashChecksum.value);
-
-
     if (inputFile == null || hashMethod.value == 'default' || hashChecksum.value == '') {
         document.querySelector('#error').style.display = '';
     } else {
         document.querySelector('#error').style.display = 'none';
         valid = true;
     }
-
     return valid;
 }
 
