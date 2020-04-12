@@ -53,7 +53,6 @@ function compareHash() {
 
     var result = false;
     var valid = false;
-    // var hash = '';
 
     valid = validateInput();
     console.log(valid);
@@ -138,84 +137,41 @@ function compareHash() {
 }
 
 function calculateHash() {
-    
-    // var result = false;
-    // var hash = '';
-
-    // valid = validateInput();
-
-    console.log('Hash methods: ' + hashMethod.value)
 
     reader.readAsBinaryString(inputFile[0]);
+
+    reader.onloadend = () => {
 
         if(hashMethod.value === 'SHA-1')
         {
             console.log("Performing SHA-1");
-            // reader.readAsBinaryString(inputFile[0]);
-            reader.onloadend = () => {
-
-                hash = CryptoJS.SHA1(fileData).toString();
-                var result = document.querySelector('#result');
-                
-                result.innerHTML = hash;
-                document.getElementById("copy").setAttribute("data-clipboard-text", hash);
-                document.querySelector('.result-row').style.display = '';
-            }
-
+            hash = CryptoJS.SHA1(fileData).toString();
         }
     
         else if(hashMethod.value === 'SHA-2') {
             
             console.log("Performing SHA-2");
-            // reader.readAsBinaryString(inputFile[0]);
-            reader.onloadend = () => {
-
-                hash = CryptoJS.SHA256(fileData).toString();
-                var result = document.querySelector('#result');
-                
-                result.innerHTML = hash;
-                document.getElementById("copy").setAttribute("data-clipboard-text", hash);
-                document.querySelector('.result-row').style.display = '';
-            }
+            hash = CryptoJS.SHA256(fileData).toString();
         }
 
         else if(hashMethod.value === 'SHA-3') {
             
             console.log("Performing SHA-3");
-            // reader.readAsBinaryString(inputFile[0]);
-            reader.onloadend = () => {
-                hash = CryptoJS.SHA3(fileData).toString();
-                var result = document.querySelector('#result');
-                
-                result.innerHTML = hash;
-                document.getElementById("copy").setAttribute("data-clipboard-text", hash);
-                document.querySelector('.result-row').style.display = '';
-            }
+            hash = CryptoJS.SHA3(fileData).toString();
         }
         
         else if(hashMethod.value === 'MD5') {
             
             console.log("Performing MD5");
-            // reader.readAsBinaryString(inputFile[0]);
-            reader.onloadend = () => {
-                hash = CryptoJS.MD5(fileData).toString();
-                var result = document.querySelector('#result');
-                
-                result.innerHTML = hash;
-                document.getElementById("copy").setAttribute("data-clipboard-text", hash);
-                document.querySelector('.result-row').style.display = '';
-            }
+            hash = CryptoJS.MD5(fileData).toString();
         }
 
-        // if(hashChecksum.value == hash)
-        //     result = true;
-
-        // localStorage.setItem("result" , result);
-        // window.location.replace("result.html");
-    
-    // var result = document.querySelector('#result');
-    // result.innerHTML = hash;
-    // document.querySelector('.result-row').style.display = '';
+        let result = document.querySelector('#result');
+        
+        result.innerHTML = hash;
+        document.getElementById("copy").setAttribute("data-clipboard-text", hash);
+        document.querySelector('.result-row').style.display = '';
+    }
 }
 
 function copy() {
