@@ -55,81 +55,35 @@ function compareHash() {
     var valid = false;
 
     valid = validateInput();
-    console.log(valid);
-
-    console.log('Hash methods: ' + hashMethod.value)
 
     reader.readAsBinaryString(inputFile[0]);
     
     if(valid)
     {
-        if(hashMethod.value === 'SHA-1')
-        {
-            console.log("Performing SHA-1");
-            reader.onloadend = () => {
+        reader.onloadend = () => {
 
+            if(hashMethod.value === 'SHA-1') {
                 hash = CryptoJS.SHA1(fileData).toString();
-                console.log(hash);
-                if(hashChecksum.value == hash)
-                    result = true;
-
-                localStorage.setItem("result" , result);
-                window.location.replace("result.html");
             }
-
-        }
-    
-        else if(hashMethod.value === 'SHA-2') {
-            
-            console.log("Performing SHA-2");
-            reader.onloadend = () => {
-
-                hash = CryptoJS.SHA256(fileData).toString();
-                console.log(hash);
-
-                if(hashChecksum.value == hash)
-                    result = true;
-
-                localStorage.setItem("result" , result);
-                window.location.replace("result.html");
-            }
-        }
-
-        else if(hashMethod.value === 'SHA-3') {
-            
-            console.log("Performing SHA-3");
-            reader.onloadend = () => {
-                hash = CryptoJS.SHA3(fileData).toString();
-                console.log(hash);
-
-                if(hashChecksum.value == hash)
-                    result = true;
-
-                localStorage.setItem("result" , result);
-                window.location.replace("result.html");
-            }
-        }
         
-        else if(hashMethod.value === 'MD5') {
-            
-            console.log("Performing MD5");
-            reader.onloadend = () => {
-                hash = CryptoJS.MD5(fileData).toString();
-                console.log(hash);
-
-                if(hashChecksum.value == hash)
-                    result = true;
-
-                localStorage.setItem("result" , result);
-                window.location.replace("result.html");
+            else if(hashMethod.value === 'SHA-2') {
+                hash = CryptoJS.SHA256(fileData).toString();
             }
+
+            else if(hashMethod.value === 'SHA-3') {  
+                hash = CryptoJS.SHA3(fileData).toString();
+            }
+            
+            else if(hashMethod.value === 'MD5') {
+                hash = CryptoJS.MD5(fileData).toString();
+            }
+
+            if(hashChecksum.value == hash)
+                result = true;
+
+            localStorage.setItem("result" , result);
+            window.location.replace("result.html");
         }
-
-        // if(hashChecksum.value == hash)
-        //     result = true;
-
-        // localStorage.setItem("result" , result);
-        // window.location.replace("result.html");
     }
     else {
         console.log("Please provide valid input!");
