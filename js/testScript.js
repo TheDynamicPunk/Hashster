@@ -7,8 +7,11 @@ var inputFile = null;
 var fileData = null;
 var hash = '';
 
+var reader = new FileReader();
+
 fileRef.addEventListener("input", (event) => {
     inputFile = event.target.files;
+    reader.readAsBinaryString(inputFile[0]);
     console.log("fired!");
 });
 
@@ -24,11 +27,36 @@ if(hashChecksum != null)
     });
 }
 
-var reader = new FileReader();
-
 reader.onload = (event) => {
+    let progressBar = document.querySelector('#progress-bar').ldBar;
+    progressBar.set(100);
     fileData = event.target.result;
+    return fileData;
 }
+
+reader.onprogress = event => {
+    let progressBar = document.querySelector('#progress-bar').ldBar;
+
+    if(document.querySelector('#progress-bar').classList.contains('disappear'))
+    {
+        console.log('here');
+        document.querySelector('#progress-bar').classList.replace('disappear', 'appear');
+    }
+    
+    if (event.lengthComputable) {
+        let percentLoaded = Math.round((event.loaded / event.total) * 100);
+        if (percentLoaded < 100) {
+            progressBar.set(percentLoaded);
+        }
+    }
+}
+
+reader.onloadend = () => {
+    setTimeout(() => {
+        document.querySelector('#progress-bar').classList.replace('appear', 'disappear');
+    }, 2000);
+}
+
 
 function validateInput()
 {
@@ -49,12 +77,12 @@ function compareHash() {
     var valid = false;
 
     valid = validateInput();
-
-    reader.readAsBinaryString(inputFile[0]);
     
     if(valid)
-    {
-        reader.onloadend = () => {
+    {        
+        if(reader.readyState === 2) {
+
+            console.log('hehreh');
 
             if(hashMethod.value === 'SHA-1') {
                 hash = CryptoJS.SHA1(fileData).toString();
@@ -86,9 +114,7 @@ function compareHash() {
 
 function calculateHash() {
 
-    reader.readAsBinaryString(inputFile[0]);
-
-    reader.onloadend = () => {
+    if(reader.readyState === 2) {
 
         if(hashMethod.value === 'SHA-1')
         {

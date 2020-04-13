@@ -167,7 +167,7 @@ button:hover {
     background-color:#000000;
     box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
-    transform: scale(1.1);
+    transform: scale(1.025);
     cursor: pointer;
 }
 
@@ -268,4 +268,20 @@ footer {
         margin-left: 32%;
         max-width: 30%;
     }
-  }
+}
+
+/* For file loading animations */
+
+.ldBar {
+    margin: 5% auto 15% auto;
+    transform: scale(1.5);
+}
+
+.disappear {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.appear {
+    opacity: 1;
+}
