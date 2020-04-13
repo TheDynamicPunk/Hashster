@@ -10,10 +10,11 @@ Web-based client side file integrity verifier implementing various hashing algor
 
 #### Issues I'm working on:
 
- - [ ] Refactor the code
+ - [x] Refactor the code
  - [x] Make code DRY
+ - [x] Add file loader animation
+ - [ ] Remove the 80MB file limit
  - [ ] Add drag and drop file handling
- - [ ] Remove the 100MB file limit
  - [ ] Add backend to serve a page individually
  - [ ] Dialog for result instead of the new page mumbo-jumbo
  - [ ] Make it available to the world!
