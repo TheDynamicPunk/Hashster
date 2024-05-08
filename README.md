@@ -1,7 +1,7 @@
 # Hashster
 Web-based client side file integrity verifier implementing various hashing algorithms using CryptoJS library.
 
-#### Working example here: https://hashster.netlify.com/
+#### Working example here: https://hashster.netlify.app/
 
 #### Features:
 1. Files do not leave your browser and get uploaded on any server, for that extra pinch of privacy! 😉
